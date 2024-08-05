@@ -21,7 +21,7 @@
         "POSTGRES_CORE_READ_DATABASE": "Host=localhost;Port=5434;Database=core;Username=postgres;Password=motoca",
         "JWT_SECRET": "HeFresos@ivlwiqu!#thEt=2ru#0vlno",
         "STORAGE_VIRTUAL_PATH": "/assets",
-        "STORAGE_PHYSICAL_PATH": "D:\\git\\9Company\\Testes\\Mottu2024\\assets\\storage"
+        "STORAGE_PHYSICAL_PATH": "D:\\git\\9Company\\Testes\\Motoca2024\\assets\\storage"
       }
     },
     "https": {
