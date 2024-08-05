@@ -1,0 +1,6 @@
+@Motoca.Interfaces.Http.Api.Common_HostAddress = http://localhost:5167
+
+GET {{Motoca.Interfaces.Http.Api.Common_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

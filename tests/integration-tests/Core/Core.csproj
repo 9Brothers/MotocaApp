@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="dotenv.net" Version="3.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.7" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
+    <PackageReference Include="xunit" Version="2.4.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="6.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Core\Domain\Motoca.Core.Domain\Motoca.Core.Domain.csproj" />
+    <ProjectReference Include="..\..\..\src\Core\Infrastructure\Motoca.Core.Infrastructure.IoC\Motoca.Core.Infrastructure.IoC.csproj" />
+    <ProjectReference Include="..\..\..\src\Core\Infrastructure\Motoca.Core.Infrastructure.Queue\Motoca.Core.Infrastructure.Queue.csproj" />
+    <ProjectReference Include="..\..\..\src\Core\Interfaces\Http\Api\Motoca.Core.Interfaces.Http.Api.Common\Motoca.Core.Interfaces.Http.Api.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="..\..\..\.env" />
+    <Content Include="..\..\..\.env">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Motoca.Platform.Infrastructure.IoC</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Infrastructure\Motoca.Core.Infrastructure.Queue\Motoca.Core.Infrastructure.Queue.csproj" />
+    <ProjectReference Include="..\..\Domain\Motoca.Platform.Domain\Motoca.Platform.Domain.csproj" />
+    <ProjectReference Include="..\Motoca.Platform.Infrastructure.Database\Motoca.Platform.Infrastructure.Database.csproj" />
+  </ItemGroup>
+
+</Project>

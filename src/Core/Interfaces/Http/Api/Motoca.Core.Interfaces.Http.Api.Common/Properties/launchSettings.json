@@ -1,0 +1,46 @@
+﻿{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:27427",
+      "sslPort": 44348
+    }
+  },
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:5167",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "POSTGRES_CORE_WRITE_DATABASE": "Host=localhost;Port=5433;Database=core;Username=postgres;Password=motoca",
+        "POSTGRES_CORE_READ_DATABASE": "Host=localhost;Port=5434;Database=core;Username=postgres;Password=motoca",
+        "JWT_SECRET": "HeFresos@ivlwiqu!#thEt=2ru#0vlno",
+        "STORAGE_VIRTUAL_PATH": "/assets",
+        "STORAGE_PHYSICAL_PATH": "D:\\git\\9Company\\Testes\\Mottu2024\\assets\\storage"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "https://localhost:7014;http://localhost:5167",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
