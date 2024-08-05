@@ -26,9 +26,9 @@ public class CoreController : ControllerBase
         return 0;
     }
     
-    protected long GetAdministradorId()
+    protected long GetAdministratorId()
     {
-        var userIdClaim = GetClaims("AdministradorId");
+        var userIdClaim = GetClaims("AdministratorId");
 
         if (userIdClaim is not null)
         {

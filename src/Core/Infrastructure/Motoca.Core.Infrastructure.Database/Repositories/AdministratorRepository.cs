@@ -21,7 +21,7 @@ public class AdministratorRepository(ICoreReaderConnection readerConnection) : I
 
     public async Task<Administrator> FindByEmail(string email)
     {
-        var query = "select * from administrators where \"Email\" = @email";
+        var query = "select \"AdministratorId\" as \"Id\", \"AdministratorGuid\" as \"Guid\", * from administrators where \"Email\" = @email";
 
         return await _connection.QueryFirstOrDefaultAsync<Administrator>(query, new {email}, commandType: CommandType.Text);
     }

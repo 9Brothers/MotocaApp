@@ -8,13 +8,13 @@ namespace Motoca.Interfaces.Http.Api.MotocaApi.Controllers;
 
 [ApiController]
 [Route("motorcycle")]
-public class MotorcycleController(IMediator mediator) : CoreController
+public class Motorcycle(IMediator mediator) : CoreController
 {
     [Authorize("Administrator")]
     [HttpPost]
     public async Task<IActionResult> Add([FromBody] RegisterMotorcycleCommand command)
     {
-        command.AdministratorId = GetAdministradorId();
+        command.AdministratorId = GetAdministratorId();
         
         await mediator.Send(command);
         
@@ -43,7 +43,7 @@ public class MotorcycleController(IMediator mediator) : CoreController
     [HttpPut]
     public async Task<IActionResult> UpdateLicensePlate([FromBody] UpdateLicensePlateMotorcycleCommand command)
     {
-        command.AdministratorId = GetAdministradorId();
+        command.AdministratorId = GetAdministratorId();
         
         await mediator.Send(command);
         
@@ -56,7 +56,7 @@ public class MotorcycleController(IMediator mediator) : CoreController
     {
         var command = new DeleteMotorcycleCommand
         {
-            AdministratorId = GetAdministradorId(),
+            AdministratorId = GetAdministratorId(),
             MotorcycleGuid = motorcycleGuid
         };
         

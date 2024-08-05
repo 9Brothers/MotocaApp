@@ -1,0 +1,591 @@
+{
+	"info": {
+		"_postman_id": "7278fd2f-9ade-48c1-bfe1-6a7db8767021",
+		"name": "Motoca",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "643341"
+	},
+	"item": [
+		{
+			"name": "/auth",
+			"item": [
+				{
+					"name": "/auth/administrator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const token = pm.response.json().token;\r",
+									"\r",
+									"pm.environment.set(\"token_administrator\", token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"heber@admin.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{motoca_core_api}}/auth/administrator",
+							"host": [
+								"{{motoca_core_api}}"
+							],
+							"path": [
+								"auth",
+								"administrator"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/auth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const token = pm.response.json().token;\r",
+									"\r",
+									"pm.environment.set(\"token_deliveryman\", token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cnpj\": \"00111333000144\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{motoca_platform_api}}/auth",
+							"host": [
+								"{{motoca_platform_api}}"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "deliveryman",
+			"item": [
+				{
+					"name": "/deliveryman",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Heber\",\r\n    \"email\": \"heber@email.com\",\r\n    \"birthdate\": \"1991-01-01\",\r\n    \"cnh\": \"123456789\",\r\n    \"cnhType\": \"AB\",\r\n    \"cnpj\": \"00111333000144\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{motoca_platform_api}}/deliveryman",
+							"host": [
+								"{{motoca_platform_api}}"
+							],
+							"path": [
+								"deliveryman"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/deliveryman/upload/cnh",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/heber/OneDrive/Imagens/7f0f3f433c2c8e0726f1657dd13831d8.bmp"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{motoca_core_api}}/deliveryman/upload/cnh",
+							"host": [
+								"{{motoca_core_api}}"
+							],
+							"path": [
+								"deliveryman",
+								"upload",
+								"cnh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/rental",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const token = pm.response.json().token;\r",
+									"\r",
+									"pm.environment.set(\"token_deliveryman\", token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"start\": \"2024-08-05\",\r\n    \"planGuid\": \"85ea2302-63d5-4333-9545-05a36a0e5820\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{motoca_platform_api}}/rental",
+							"host": [
+								"{{motoca_platform_api}}"
+							],
+							"path": [
+								"rental"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/rental/end",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"start\": \"2024-08-05\",\r\n    \"planGuid\": \"85ea2302-63d5-4333-9545-05a36a0e5820\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{motoca_platform_api}}/rental/end",
+							"host": [
+								"{{motoca_platform_api}}"
+							],
+							"path": [
+								"rental",
+								"end"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token_deliveryman}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "administrator",
+			"item": [
+				{
+					"name": "/motorcycle",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const token = pm.response.json().token;\r",
+									"\r",
+									"pm.environment.set(\"token_deliveryman\", token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"year\": 2024,\r\n    \"model\": \"YBR125\",\r\n    \"licensePlate\": \"EEE1E11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{motoca_platform_api}}/motorcycle?page=0",
+							"host": [
+								"{{motoca_platform_api}}"
+							],
+							"path": [
+								"motorcycle"
+							],
+							"query": [
+								{
+									"key": "licensePlate",
+									"value": "EEE1E1",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/motorcycle",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"year\": 2024,\r\n    \"model\": \"YBR125\",\r\n    \"licensePlate\": \"EEE1E35\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{motoca_platform_api}}/motorcycle",
+							"host": [
+								"{{motoca_platform_api}}"
+							],
+							"path": [
+								"motorcycle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/motorcycle",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const token = pm.response.json().token;\r",
+									"\r",
+									"pm.environment.set(\"token_deliveryman\", token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"wrongLicensePlate\": \"FFF1E22\",    \r\n    \"correctLicensePlate\": \"GGG1E22\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{motoca_platform_api}}/motorcycle",
+							"host": [
+								"{{motoca_platform_api}}"
+							],
+							"path": [
+								"motorcycle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/motorcycle/{motorcycleGuid}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const token = pm.response.json().token;\r",
+									"\r",
+									"pm.environment.set(\"token_deliveryman\", token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{motoca_platform_api}}/motorcycle/2f791bf1-0673-49ab-af5a-696fe976324f",
+							"host": [
+								"{{motoca_platform_api}}"
+							],
+							"path": [
+								"motorcycle",
+								"2f791bf1-0673-49ab-af5a-696fe976324f"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token_administrator}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "/administrator",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const token = pm.response.json().token;\r",
+							"\r",
+							"pm.environment.set(\"token_deliveryman\", token);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Edna\",\r\n    \"email\": \"edna@admin.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{motoca_core_api}}/administrator",
+					"host": [
+						"{{motoca_core_api}}"
+					],
+					"path": [
+						"administrator"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/deliveryman",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const token = pm.response.json().token;\r",
+							"\r",
+							"pm.environment.set(\"token_deliveryman\", token);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Edna\",\r\n    \"email\": \"edna@email.com\",\r\n    \"birthdate\": \"1997-01-01\",\r\n    \"cnh\": \"987654321\",\r\n    \"cnhType\": \"A\",\r\n    \"cnpj\": \"11222333000144\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{motoca_core_api}}/deliveryman",
+					"host": [
+						"{{motoca_core_api}}"
+					],
+					"path": [
+						"deliveryman"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/plan",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const token = pm.response.json().token;\r",
+							"\r",
+							"pm.environment.set(\"token_deliveryman\", token);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Edna\",\r\n    \"email\": \"edna@email.com\",\r\n    \"birthdate\": \"1997-01-01\",\r\n    \"cnh\": \"987654321\",\r\n    \"cnhType\": \"A\",\r\n    \"cnpj\": \"11222333000144\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{motoca_platform_api}}/plan",
+					"host": [
+						"{{motoca_platform_api}}"
+					],
+					"path": [
+						"plan"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
